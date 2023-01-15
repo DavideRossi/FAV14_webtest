@@ -9,34 +9,24 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-class TestnameTest {
-	private WebDriver driver;
-	JavascriptExecutor js;
+import io.github.bonigarcia.seljup.SeleniumJupiter;
 
+@ExtendWith(SeleniumJupiter.class)
+class TestnameTest {
 	@BeforeAll
 	public static void setupProps() {
 		System.setProperty("webdriver.gecko.driver", "/home/rossi/Apps/geckodriver/geckodriver");
 	}
-	
-	@BeforeEach
-	public void setUp() {
-		driver = new FirefoxDriver();
-		js = (JavascriptExecutor) driver;
-	}
-
-	@AfterEach
-	public void tearDown() {
-		driver.quit();
-	}
 
 	@Test
-	public void testname() {
+	public void testname(FirefoxDriver driver) {
 		driver.get("http://localhost:8080/");
 		driver.manage().window().setSize(new Dimension(1125, 883));
 		driver.findElement(By.name("name")).click();
