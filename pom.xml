@@ -42,6 +42,11 @@
 			<artifactId>selenium-firefox-driver</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

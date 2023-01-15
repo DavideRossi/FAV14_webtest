@@ -2,18 +2,11 @@ package it.fav.mod14.webapp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.seljup.SeleniumJupiter;
@@ -33,6 +26,7 @@ class TestnameTest {
 		driver.findElement(By.name("name")).sendKeys("Davide");
 		driver.findElement(By.cssSelector("html")).click();
 		driver.findElement(By.cssSelector("input:nth-child(3)")).click();
-		assertEquals(driver.findElement(By.xpath("//body/span")).getText(), "Hello Davide");
+		String text = driver.findElement(By.xpath("//body/span")).getText();
+		assertEquals(text, "Hello Davide");
 	}
 }
